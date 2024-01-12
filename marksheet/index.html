@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;box-sizing: border-box;
+    }
+    div{
+        margin-top:  2rem ; 
+    }
+    div div{
+        margin-left: 3rem;
+
+    }
+
+
+</style>
+<body>
+    <div>
+        <h2> Marksheet</h2>
+        <table>
+            <colgroup>
+                <col span="1" style="background-color:bisque">
+                <col style="background-color:yellow">
+                <col style="background-color:rgb(91, 222, 91)">
+          </colgroup>
+            
+            <tr>
+                <th>Subjects: </th>
+                <th>Total Marks </th>
+                <th>Obtained Num </th>
+            </tr>
+            <tr>
+                <td>subject:1 </td>
+                <td> <span id="sub_1_Total"> </span> </td>
+                <td> <span id="obtainMarksSub_1"></span>  </td>
+             </tr>
+            
+            <tr>
+                <td>subject:2 </td>
+                <td> <span id="sub_2_Total"> </span> </td>
+                <td> <span id="obtainMarksSub_2"></span>  </td>
+            </tr>
+        </table>
+        <br>
+        <h4> Result  </h4>
+        <hr>
+        <div>
+            <h3> Total Marks: <span id="total"> </span> </h3> <br>
+            <h3> Total Obtained Marks: <span id="totalObtain"> </span> </h3> <br>
+            <h3> Percentage: <span id="percentage"> </span> </h3>
+        </div>
+        <div id="result"></div>
+
+    </div>
+
+    
+    <script>
+        //   Calculate total marks and percentage
+        let sub_1 = 100;
+        let sub_2 = 100;
+        let totalMarks = sub_1 + sub_2;
+        let sub_1_Total = document.getElementById("sub_1_Total");
+        sub_1_Total.innerText = sub_1;
+        let sub_2_Total = document.getElementById("sub_2_Total");
+        sub_2_Total.innerText = sub_2;
+
+        let obtainMarksSubject1 = 90;
+        let obtainMarksSubject2 = 10;
+        let obtainMarksSub_1 = document.getElementById("obtainMarksSub_1");
+        obtainMarksSub_1.innerText = obtainMarksSubject1; 
+        let obtainMarksSub_2 = document.getElementById("obtainMarksSub_2");
+        obtainMarksSub_2.innerText = obtainMarksSubject2;
+
+        let totalObtainedMarks = obtainMarksSubject1 + obtainMarksSubject2 ;
+        let percent = (totalObtainedMarks /  totalMarks)  * 100 + "%" ;
+
+        let totalMarks_= document.getElementById("total");
+        totalMarks_.innerText = totalMarks ;
+        let totalObtain = document.getElementById("totalObtain");
+        totalObtain.innerHTML = totalObtainedMarks;
+        let percentage = document.getElementById("percentage");
+        percentage.innerText = percent;
+
+        let result = document.getElementById("result");
+
+        if(percent > 50 ){
+            result.innerText = `You just barely Passed `;
+        }else if(percent > 70 ){
+            result.innerText = `Wohooo!! You Passed with A+ Grade `;
+        }else if (percent < 50 ){
+            result.innerText = `You Failed better luck next time `;
+        }
+    
+    </script>
+</body>
+</html>
